@@ -1,22 +1,38 @@
+@charset "UTF-8";
+/* ===================================================
+    AHORRATECH - VARIABLES Y MIXINS
+    Parcial de Sass: se utiliza desde estilos.scss
+    mediante @use y no se compila por separado.
+   =================================================== */
+/* --- COLORES: las variables $ guardan valores reutilizables --- */
+/* --- DISEÑO: propiedades comunes de las tarjetas --- */
+/* --- RESPONSIVO: medidas para adaptar la página --- */
+/* --- MIXIN: agrupa propiedades para reutilizarlas --- */
+/* Variables CSS generadas desde Sass.
+    :root permite utilizarlas en toda la página.
+   La interpolación inserta los valores de Sass. */
 :root {
-  --color-principal: #1B5E20;
-  --color-acento: #F9A825;
-  --color-suave: #DDEBDD;
+  --color-principal: #142D4E;
+  --color-secundario: #16A6A1;
+  --color-acento: #F2B544;
+  --color-fondo: #F4F7FA;
+  --color-texto: #1F2933;
+  --color-suave: #DCE7ED;
 }
 
 body {
   font-family: "Poppins", Arial, sans-serif;
-  background-color: #F4F7F2;
+  background-color: #F4F7FA;
   color: #1F2933;
 }
 
 h1, h2, h3 {
-  color: #1B5E20;
+  color: #142D4E;
   font-weight: 700;
 }
 
 .encabezado {
-  background-color: #1B5E20;
+  background-color: #142D4E;
   margin-bottom: 24px;
   padding: 24px;
   border-radius: 12px;
@@ -26,7 +42,7 @@ h1, h2, h3 {
   color: white;
 }
 .encabezado p {
-  color: #E3F2E3;
+  color: #EAF8F8;
 }
 @media (max-width: 576px) {
   .encabezado {
@@ -41,7 +57,7 @@ h1, h2, h3 {
   background-color: white;
   padding: 16px 24px;
   margin-bottom: 24px;
-  border-left: 6px solid #F9A825;
+  border-left: 6px solid #F2B544;
   border-radius: 12px;
 }
 
@@ -65,10 +81,10 @@ h1, h2, h3 {
 }
 .menu > a:hover {
   background-color: white;
-  color: #1B5E20;
+  color: #142D4E;
 }
 .menu > a:focus {
-  outline: 3px solid #F9A825;
+  outline: 3px solid #F2B544;
 }
 
 .tarjetas {
@@ -90,7 +106,7 @@ h1, h2, h3 {
 
 .tarjeta {
   background-color: white;
-  border: 1px solid #DDEBDD;
+  border: 1px solid #DCE7ED;
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
@@ -100,14 +116,14 @@ h1, h2, h3 {
   transform: translateY(-6px);
 }
 .tarjeta:first-child {
-  border-top: 6px solid #F9A825;
+  border-top: 6px solid #F2B544;
 }
 .tarjeta p:nth-child(2) {
   min-height: 48px;
 }
 
 .precio {
-  color: #1B5E20;
+  color: #142D4E;
   font-size: 1.3rem;
   font-weight: 700;
 }
@@ -116,12 +132,12 @@ h1, h2, h3 {
   display: inline-block;
   padding: 2px 10px;
   border-radius: 999px;
-  background-color: #DDEBDD;
+  background-color: #DCE7ED;
   font-size: 0.8rem;
 }
 
 .ahorro {
-  color: #2E7D32;
+  color: #0E7774;
   font-weight: 700;
 }
 
@@ -133,15 +149,15 @@ h1, h2, h3 {
 }
 
 .filtro {
-  border: 2px solid #1B5E20;
+  border: 2px solid #142D4E;
   background-color: white;
-  color: #1B5E20;
+  color: #142D4E;
   padding: 6px 16px;
   border-radius: 999px;
   transition: background-color 0.3s;
 }
 .filtro:hover, .filtro.activo {
-  background-color: #1B5E20;
+  background-color: #142D4E;
   color: white;
 }
 
@@ -159,7 +175,7 @@ h1, h2, h3 {
 
 #carrito {
   background-color: white;
-  border: 2px solid #F9A825;
+  border: 2px solid #F2B544;
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
@@ -168,14 +184,14 @@ h1, h2, h3 {
 }
 
 a[target=_blank] {
-  color: #1B5E20;
+  color: #142D4E;
   font-weight: 700;
 }
 
 .pie {
   margin-top: 24px;
   padding-top: 12px;
-  border-top: 1px solid #DDEBDD;
+  border-top: 1px solid #DCE7ED;
   color: #52606D;
   font-size: 0.9rem;
 }
@@ -190,7 +206,295 @@ a[target=_blank] {
 
 .alert-warning {
   background-color: #FFF8E1;
-  border-color: #F9A825;
-  border-left: 6px solid #F9A825;
+  border-color: #F2B544;
+  border-left: 6px solid #F2B544;
   border-radius: 12px;
+}
+
+/* =============================================
+   AHORRATECH - IDENTIDAD EDITORIAL
+   ============================================= */
+/* Encabezado blanco con marca y navegación */
+.encabezado--editorial {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: white;
+  border: 1px solid #DCE7ED;
+  border-radius: 16px;
+  padding: 18px 24px;
+  /* Nombre comercial */
+}
+.encabezado--editorial .marca {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.encabezado--editorial .marca a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #142D4E;
+  text-decoration: none;
+}
+.encabezado--editorial {
+  /* Símbolo de energía */
+}
+.encabezado--editorial .marca-icono {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #142D4E;
+  color: #F2B544;
+}
+.encabezado--editorial .marca-acento {
+  color: #16A6A1;
+}
+.encabezado--editorial {
+  /* Personalización de los enlaces */
+}
+.encabezado--editorial .menu > a {
+  color: #142D4E;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 9px 14px;
+}
+.encabezado--editorial .menu > a:hover {
+  background: #16A6A1;
+  color: white;
+}
+.encabezado--editorial .menu > a:focus-visible {
+  outline: 3px solid #F2B544;
+  outline-offset: 2px;
+}
+
+/* Footer oscuro distribuido mediante Grid */
+.pie--editorial {
+  background: #142D4E;
+  color: #DCE7ED;
+  border: none;
+  border-radius: 18px;
+  padding: 32px;
+  margin-top: 40px;
+}
+.pie--editorial .pie-columnas {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1.3fr;
+  gap: 30px;
+}
+.pie--editorial .pie-marca {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.pie--editorial .pie-marca span {
+  color: #16A6A1;
+}
+.pie--editorial h2 {
+  color: #80DDD5;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+.pie--editorial p {
+  margin: 8px 0;
+  font-size: 0.85rem;
+}
+.pie--editorial a {
+  color: #DCE7ED;
+  text-decoration: none;
+}
+.pie--editorial a:hover {
+  color: #F2B544;
+  text-decoration: underline;
+}
+.pie--editorial .pie-enlaces {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pie--editorial .pie-inferior {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-top: 1px solid #46617A;
+  margin-top: 26px;
+  padding-top: 16px;
+}
+
+/* Adaptación a tabletas */
+@media (max-width: 992px) {
+  .pie--editorial .pie-columnas {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* Adaptación a celulares */
+@media (max-width: 576px) {
+  .encabezado--editorial {
+    padding: 16px;
+  }
+  .encabezado--editorial .marca {
+    font-size: 1.3rem;
+  }
+  .encabezado--editorial .menu {
+    width: 100%;
+    flex-direction: column;
+  }
+  .encabezado--editorial .menu > a {
+    width: 100%;
+  }
+  .pie--editorial {
+    padding: 24px;
+  }
+  .pie--editorial .pie-columnas {
+    grid-template-columns: 1fr;
+  }
+}
+/* ============================================
+   AHORRATECH - HERO DE LA PORTADA
+   ============================================ */
+/* Contenedor principal: dos columnas con Grid */
+.inicio-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 36px;
+  background: linear-gradient(135deg, #E6EFF4, #F9FCFE);
+  border: 1px solid #DCE7ED;
+  border-radius: 20px;
+  padding: 45px;
+  margin-bottom: 28px;
+}
+
+/* Columna izquierda: textos y botón */
+.inicio-hero__contenido .inicio-hero__etiqueta {
+  display: inline-block;
+  background: #D9F4EF;
+  color: #087571;
+  padding: 7px 14px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.inicio-hero__contenido h2 {
+  color: #142D4E;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  margin: 22px 0;
+}
+.inicio-hero__contenido h2 span {
+  color: #008D89;
+  display: block;
+}
+.inicio-hero__contenido p {
+  color: #455A70;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+/* Botón principal con transición */
+.inicio-hero__boton {
+  display: inline-block;
+  background: #142D4E;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+.inicio-hero__boton:hover {
+  background: #16A6A1;
+  color: white;
+  transform: translateY(-3px);
+}
+.inicio-hero__boton:focus-visible {
+  outline: 3px solid #F2B544;
+  outline-offset: 3px;
+}
+
+/* Columna derecha: panel tecnológico */
+.inicio-hero__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #142D4E;
+  color: white;
+  border-radius: 18px;
+  padding: 42px 25px;
+  min-height: 300px;
+  /* Contenedor del ícono */
+}
+.inicio-hero__panel .inicio-hero__icono {
+  display: grid;
+  place-items: center;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 25px;
+  border-radius: 24px;
+  background: #234968;
+  color: #F2B544;
+}
+.inicio-hero__panel .inicio-hero__subtitulo {
+  color: #80DDD5;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.inicio-hero__panel h3 {
+  color: white;
+  font-size: 1.3rem;
+  margin: 12px 0 24px;
+}
+
+/* Indicadores decorativos de colores */
+.inicio-hero__indicadores {
+  display: flex;
+  gap: 7px;
+}
+.inicio-hero__indicadores span {
+  width: 30px;
+  height: 6px;
+  border-radius: 20px;
+  background: #16A6A1;
+}
+.inicio-hero__indicadores span:nth-child(2) {
+  background: #F2B544;
+  width: 20px;
+}
+.inicio-hero__indicadores span:nth-child(3) {
+  background: #FC785A;
+  width: 12px;
+}
+
+/* Tablet y celular: columnas apiladas */
+@media (max-width: 992px) {
+  .inicio-hero {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+}
+/* Celular: menos espacio y texto adaptable */
+@media (max-width: 576px) {
+  .inicio-hero {
+    padding: 22px;
+    gap: 24px;
+  }
+  .inicio-hero__contenido h2 {
+    letter-spacing: -0.5px;
+  }
+  .inicio-hero__panel {
+    min-height: 240px;
+    padding: 28px 18px;
+  }
 }

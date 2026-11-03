@@ -1,26 +1,38 @@
-// =============================================================
-// PARCIAL de Sass: solo variables y mixins.
-// El guion bajo (_variables.scss) le dice a Sass que este archivo
-// no se compila solo: se usa desde estilos.scss con @use.
-// =============================================================
 
-// --- Variables de Sass: empiezan con $ y solo existen al compilar ---
-$color-principal: #1B5E20;   // verde oscuro: encabezado y titulos
-$color-acento: #F9A825;      // amarillo: precios y detalles
-$color-fondo: #F4F7F2;       // gris verdoso muy claro: fondo
-$color-texto: #1F2933;       // casi negro: el texto
-$color-suave: #DDEBDD;       // verde claro: bordes y filas
-$radio: 12px;                // esquinas redondeadas
-$sombra: 0 4px 12px rgba(0, 0, 0, 0.12);   // sombra suave: abajo 4px, difuminada 12px, negro al 12 %
+/* ===================================================
+    AHORRATECH - VARIABLES Y MIXINS
+    Parcial de Sass: se utiliza desde estilos.scss
+    mediante @use y no se compila por separado.
+   =================================================== */
 
-// Anchos de pantalla para el diseno responsivo
-$tablet: 992px;              // hasta este ancho se considera tablet
-$celular: 576px;             // hasta este ancho se considera celular
+/* --- COLORES: las variables $ guardan valores reutilizables --- */
 
-// --- Mixin: un grupo de propiedades con nombre, que se reutiliza con @include ---
-// $relleno tiene un valor por defecto (16px) si no se le pasa otro
+$color-principal: #142D4E;   // Azul oscuro: encabezado y títulos
+$color-secundario: #16A6A1;  // Turquesa: botones y detalles
+$color-acento: #F2B544;      // Amarillo: información destacada
+$color-fondo: #F4F7FA;       // Gris claro: fondo general
+$color-texto: #1F2933;       // Gris oscuro: facilita la lectura
+$color-suave: #DCE7ED;       // Azul claro: bordes y fondos suaves
+
+/* --- DISEÑO: propiedades comunes de las tarjetas --- */
+
+$radio: 12px;  // Redondea las esquinas de los elementos
+
+// Sombra: 0 horizontal, 4px vertical, 12px difuminado
+$sombra: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+/* --- RESPONSIVO: medidas para adaptar la página --- */
+
+$tablet: 992px;   // Ancho de referencia para tabletas
+$celular: 576px;  // Ancho de referencia para celulares
+
+/* --- MIXIN: agrupa propiedades para reutilizarlas --- */
+
+// $relleno tiene 16px por defecto; se puede modificar
+// El mixin se aplica en estilos.scss mediante @include
+
 @mixin caja($relleno: 16px) {
-    padding: $relleno;       // el relleno que se le pase (o 16px)
-    border-radius: $radio;   // esquinas redondeadas
-    box-shadow: $sombra;     // sombra
+    padding: $relleno;       // Espacio interior
+    border-radius: $radio;   // Esquinas redondeadas
+    box-shadow: $sombra;     // Sombra del elemento
 }

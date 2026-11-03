@@ -29,25 +29,47 @@
 <!-- body: todo lo que se ve. container centra el contenido; py-3 deja espacio arriba y abajo -->
 <body class="container py-3">
     <!-- header: el encabezado, igual al de index.html (clase propia "encabezado") -->
-    <header class="encabezado">
-        <!-- h1: el titulo principal de esta pagina -->
-        <h1>Catálogo de AhorraTech</h1>
-        <!-- p: un parrafo que explica la pagina -->
-        <p>Cada producto dice cuánto le ahorra al mes, con una tarifa de 950 COP/kWh.</p>
-        <!-- nav: el menu, con un enlace (a) a cada pagina -->
-        <nav class="menu">
-            <!-- href: la pagina a la que lleva el enlace -->
-            <a href="index.html">Inicio</a>
-            <a href="catalogo.html">Catálogo</a>
-            <a href="nosotros.html">Nosotros</a>
-            <a href="contacto.html">Contacto</a>
-        <!-- Cierra el menu -->
-        </nav>
-    <!-- Cierra el encabezado -->
-    </header>
+    
+<!-- ENCABEZADO: marca a la izquierda y menú a la derecha -->
+<header class="encabezado encabezado--editorial">
+
+    <!-- Marca principal de AhorraTech -->
+    <h1 class="marca">
+        <a href="index.html" aria-label="AhorraTech - Inicio">
+            <span class="marca-icono" aria-hidden="true">⚡</span>
+            <span>AHORRA<span class="marca-acento">TECH</span></span>
+        </a>
+    </h1>
+
+    <!-- Menú de navegación entre las cuatro páginas -->
+    <nav class="menu" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+</header>
+
 
     <!-- main: el contenido principal -->
     <main>
+        
+        <!-- Buscador de productos por nombre -->
+        <div class="busqueda mb-3">
+            <label for="buscador-productos" class="form-label fw-semibold">
+                Buscar productos
+            </label>
+
+            <input
+                type="search"
+                id="buscador-productos"
+                class="form-control"
+                placeholder="Ej. Bombillo LED, nevera..."
+                autocomplete="off"
+            >
+        </div>
+
         <!-- div class="filtros": la caja con los botones para filtrar por categoria -->
         <div class="filtros">
             <!-- button: un BOTON. data-categoria: un dato PROPIO guardado en el boton
@@ -89,13 +111,54 @@
     </main>
 
     <!-- footer: el pie de pagina, con su clase propia "pie" -->
-    <footer class="pie">
-        <!-- Aviso: los productos no son reales -->
-        <p>Los productos y sus precios son de ejemplo.</p>
-        <!-- El curso y la institucion -->
-        <p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p>
-    <!-- Cierra el pie de pagina -->
-    </footer>
+    
+<!-- FOOTER: información y navegación del sitio -->
+<footer class="pie pie--editorial">
+
+    <div class="pie-columnas">
+
+        <!-- Identidad de la tienda -->
+        <div>
+            <strong class="pie-marca">
+                AHORRA<span>TECH</span>
+            </strong>
+            <p>Tecnología inteligente, ahorro real.</p>
+            <p>Equipos eficientes para consumir mejor.</p>
+        </div>
+
+        <!-- Enlaces de navegación -->
+        <div>
+            <h2>EXPLORA</h2>
+            <nav class="pie-enlaces" aria-label="Navegación del pie">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+
+        <!-- Información académica y fuente -->
+        <div>
+            <h2>PROYECTO ACADÉMICO</h2>
+            <p>Ingeniería Web I</p>
+            <p>IU Digital de Antioquia · 2026-2</p>
+            <p>Desarrollado por Alejandro Serna</p>
+            <p>Fuente de referencia:
+                <a href="https://www.xm.com.co"
+                   target="_blank" rel="noopener noreferrer">XM</a>
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Franja inferior -->
+    <div class="pie-inferior">
+        <small>© 2026 AhorraTech · Proyecto académico</small>
+        <small>Productos y precios ilustrativos. No se realizan ventas.</small>
+    </div>
+
+</footer>
+
 <!-- Cierra el cuerpo: aqui termina lo que se ve -->
 </body>
 <!-- Cierra la pagina -->

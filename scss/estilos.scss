@@ -9,13 +9,20 @@
 // "as *" permite escribir $color-principal en vez de variables.$color-principal
 @use "variables" as *;
 
-// Variables CSS generadas desde las de Sass con #{ }: asi existen
-// tambien en el navegador (las usa Bootstrap, abajo)
+
+/* Variables CSS generadas desde Sass.
+    :root permite utilizarlas en toda la página.
+   La interpolación inserta los valores de Sass. */
+
 :root {
-    --color-principal: #{$color-principal};   // #{ } escribe el valor de la variable de Sass
-    --color-acento: #{$color-acento};
-    --color-suave: #{$color-suave};
+    --color-principal: #{$color-principal};     // Azul oscuro
+    --color-secundario: #{$color-secundario};   // Turquesa
+    --color-acento: #{$color-acento};           // Amarillo
+    --color-fondo: #{$color-fondo};             // Fondo claro
+    --color-texto: #{$color-texto};             // Texto oscuro
+    --color-suave: #{$color-suave};             // Bordes claros
 }
+
 
 // La pagina entera
 body {
@@ -40,8 +47,8 @@ h1, h2, h3 {
         color: white;               // titulo en blanco
     }
 
-    p {                             // se compila como .encabezado p
-        color: #E3F2E3;             // texto en verde muy claro
+    p {
+    color: #EAF8F8; // Blanco azulado: contrasta con el fondo azul
     }
 
     @media (max-width: $celular) {  // la media query tambien se anida
@@ -146,7 +153,7 @@ h1, h2, h3 {
 
 // El ahorro (kWh y pesos)
 .ahorro {
-    color: #2E7D32;         // en verde
+    color: #0E7774; // Turquesa oscuro: destaca el ahorro energético
     font-weight: 700;       // en negrilla
 }
 
@@ -227,4 +234,336 @@ a[target="_blank"] {
     border-color: $color-acento;            // borde amarillo
     border-left: 6px solid $color-acento;   // borde grueso a la izquierda
     border-radius: $radio;                  // esquinas redondeadas
+}
+
+
+/* =============================================
+   AHORRATECH - IDENTIDAD EDITORIAL
+   ============================================= */
+
+/* Encabezado blanco con marca y navegación */
+.encabezado--editorial {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    background: white;
+    border: 1px solid $color-suave;
+    border-radius: 16px;
+    padding: 18px 24px;
+
+    /* Nombre comercial */
+    .marca {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -1px;
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: $color-principal;
+            text-decoration: none;
+        }
+    }
+
+    /* Símbolo de energía */
+    .marca-icono {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+        background: $color-principal;
+        color: $color-acento;
+    }
+
+    .marca-acento {
+        color: $color-secundario;
+    }
+
+    /* Personalización de los enlaces */
+    .menu > a {
+        color: $color-principal;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        font-weight: 600;
+        padding: 9px 14px;
+
+        &:hover {
+            background: $color-secundario;
+            color: white;
+        }
+
+        &:focus-visible {
+            outline: 3px solid $color-acento;
+            outline-offset: 2px;
+        }
+    }
+}
+
+/* Footer oscuro distribuido mediante Grid */
+.pie--editorial {
+    background: $color-principal;
+    color: #DCE7ED;
+    border: none;
+    border-radius: 18px;
+    padding: 32px;
+    margin-top: 40px;
+
+    .pie-columnas {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1.3fr;
+        gap: 30px;
+    }
+
+    .pie-marca {
+        color: white;
+        font-size: 1.3rem;
+        font-weight: 700;
+
+        span {
+            color: $color-secundario;
+        }
+    }
+
+    h2 {
+        color: #80DDD5;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    p {
+        margin: 8px 0;
+        font-size: 0.85rem;
+    }
+
+    a {
+        color: #DCE7ED;
+        text-decoration: none;
+
+        &:hover {
+            color: $color-acento;
+            text-decoration: underline;
+        }
+    }
+
+    .pie-enlaces {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .pie-inferior {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+        border-top: 1px solid #46617A;
+        margin-top: 26px;
+        padding-top: 16px;
+    }
+}
+
+/* Adaptación a tabletas */
+@media (max-width: $tablet) {
+    .pie--editorial .pie-columnas {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Adaptación a celulares */
+@media (max-width: $celular) {
+    .encabezado--editorial {
+        padding: 16px;
+
+        .marca {
+            font-size: 1.3rem;
+        }
+
+        .menu {
+            width: 100%;
+            flex-direction: column;
+
+            > a {
+                width: 100%;
+            }
+        }
+    }
+
+    .pie--editorial {
+        padding: 24px;
+
+        .pie-columnas {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+
+/* ============================================
+   AHORRATECH - HERO DE LA PORTADA
+   ============================================ */
+
+/* Contenedor principal: dos columnas con Grid */
+.inicio-hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 36px;
+
+    background: linear-gradient(135deg, #E6EFF4, #F9FCFE);
+    border: 1px solid $color-suave;
+    border-radius: 20px;
+    padding: 45px;
+    margin-bottom: 28px;
+}
+
+/* Columna izquierda: textos y botón */
+.inicio-hero__contenido {
+
+    .inicio-hero__etiqueta {
+        display: inline-block;
+        background: #D9F4EF;
+        color: #087571;
+        padding: 7px 14px;
+        border-radius: 30px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        color: $color-principal;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        line-height: 1.15;
+        letter-spacing: -1.5px;
+        margin: 22px 0;
+
+        span {
+            color: #008D89; // Turquesa protagonista
+            display: block;
+        }
+    }
+
+    p {
+        color: #455A70;
+        line-height: 1.7;
+        margin-bottom: 28px;
+    }
+}
+
+/* Botón principal con transición */
+.inicio-hero__boton {
+    display: inline-block;
+    background: $color-principal;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: background 0.3s, transform 0.3s;
+
+    &:hover {
+        background: $color-secundario;
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    &:focus-visible {
+        outline: 3px solid $color-acento;
+        outline-offset: 3px;
+    }
+}
+
+/* Columna derecha: panel tecnológico */
+.inicio-hero__panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background: $color-principal;
+    color: white;
+    border-radius: 18px;
+    padding: 42px 25px;
+    min-height: 300px;
+
+    /* Contenedor del ícono */
+    .inicio-hero__icono {
+        display: grid;
+        place-items: center;
+        width: 110px;
+        height: 110px;
+        margin-bottom: 25px;
+        border-radius: 24px;
+        background: #234968;
+        color: $color-acento;
+    }
+
+    .inicio-hero__subtitulo {
+        color: #80DDD5;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    h3 {
+        color: white;
+        font-size: 1.3rem;
+        margin: 12px 0 24px;
+    }
+}
+
+/* Indicadores decorativos de colores */
+.inicio-hero__indicadores {
+    display: flex;
+    gap: 7px;
+
+    span {
+        width: 30px;
+        height: 6px;
+        border-radius: 20px;
+        background: $color-secundario;
+
+        &:nth-child(2) {
+            background: $color-acento;
+            width: 20px;
+        }
+
+        &:nth-child(3) {
+            background: #FC785A;
+            width: 12px;
+        }
+    }
+}
+
+/* Tablet y celular: columnas apiladas */
+@media (max-width: $tablet) {
+    .inicio-hero {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+}
+
+/* Celular: menos espacio y texto adaptable */
+@media (max-width: $celular) {
+    .inicio-hero {
+        padding: 22px;
+        gap: 24px;
+    }
+
+    .inicio-hero__contenido h2 {
+        letter-spacing: -0.5px;
+    }
+
+    .inicio-hero__panel {
+        min-height: 240px;
+        padding: 28px 18px;
+    }
 }

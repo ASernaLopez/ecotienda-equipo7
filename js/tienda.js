@@ -106,6 +106,9 @@ function mostrarProductos(categoria) {
     // innerHTML = el HTML que hay dentro del elemento. "" = nada: lo vacia,
     // para no repetir tarjetas si la funcion se llama otra vez
     contenedor.innerHTML = "";
+    // Lee el texto escrito y lo convierte en minúsculas
+    const busqueda = document.querySelector("#buscador-productos")
+        .value.trim().toLowerCase();
 
     // BUCLE for...of: repite el bloque { } una vez por cada elemento del arreglo.
     // En cada vuelta, producto es un producto distinto: 1.a vuelta el bombillo, 2.a el panel...
@@ -117,6 +120,11 @@ function mostrarProductos(categoria) {
             // ...continue salta a la siguiente vuelta del bucle: este producto no se muestra
             continue;
         }
+        // Omite los productos que no coinciden con la búsqueda
+        if (!producto.nombre.toLowerCase().includes(busqueda)) {
+            continue;
+        }
+
         // Agrega la tarjeta de este producto al contenedor.
         // += agrega al final de lo que ya habia (sin += se borrarian las tarjetas anteriores)
         // El texto va entre comillas invertidas ` ` (TEMPLATE STRING):
@@ -139,6 +147,13 @@ function mostrarProductos(categoria) {
                 <p>Ahorro al mes: <span class="ahorro">${pesos(ahorroPesosMes(producto))}</span></p>
                 <button class="btn btn-primary btn-sm" data-id="${producto.id}">Agregar al carrito</button>
             </article>`;
+    }
+        // Muestra un aviso cuando no hay productos coincidentes
+    if (contenedor.children.length === 0) {
+        contenedor.innerHTML = `
+            <p class="alert alert-info" role="status">
+                No encontramos productos para esta búsqueda.
+            </p>`;
     }
 }
 
@@ -226,6 +241,16 @@ for (const boton of botonesFiltro) {
         mostrarProductos(boton.dataset.categoria);
     });
 }
+
+// Actualiza el catálogo cada vez que se escribe en el buscador
+document.querySelector("#buscador-productos")
+    .addEventListener("input", function () {
+
+        // Conserva la categoría que esté seleccionada
+        const activo = document.querySelector(".filtro.activo");
+
+        mostrarProductos(activo.dataset.categoria);
+    });
 
 // Clic en un boton "Agregar al carrito".
 // Se escucha en el CONTENEDOR #productos y no en cada boton, porque los botones

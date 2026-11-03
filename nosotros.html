@@ -21,17 +21,28 @@
 
 <body class="container py-3">
 
-    <header class="encabezado">
-        <h1>Quiénes somos</h1>
-        <p>Conoce a la persona detrás de AhorraTech.</p>
+    
+<!-- ENCABEZADO: marca a la izquierda y menú a la derecha -->
+<header class="encabezado encabezado--editorial">
 
-        <nav class="menu" aria-label="Navegación principal">
-            <a href="index.html">Inicio</a>
-            <a href="catalogo.html">Catálogo</a>
-            <a href="nosotros.html">Nosotros</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
-    </header>
+    <!-- Marca principal de AhorraTech -->
+    <h1 class="marca">
+        <a href="index.html" aria-label="AhorraTech - Inicio">
+            <span class="marca-icono" aria-hidden="true">⚡</span>
+            <span>AHORRA<span class="marca-acento">TECH</span></span>
+        </a>
+    </h1>
+
+    <!-- Menú de navegación entre las cuatro páginas -->
+    <nav class="menu" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+</header>
+
 
     <main>
         <section aria-labelledby="titulo-equipo">
@@ -63,10 +74,53 @@
         </section>
     </main>
 
-    <footer class="pie">
-        <p>AhorraTech - Tecnología inteligente, ahorro real.</p>
-        <p>Ingeniería Web I - IU Digital de Antioquia - 2026-2</p>
-    </footer>
+    
+<!-- FOOTER: información y navegación del sitio -->
+<footer class="pie pie--editorial">
+
+    <div class="pie-columnas">
+
+        <!-- Identidad de la tienda -->
+        <div>
+            <strong class="pie-marca">
+                AHORRA<span>TECH</span>
+            </strong>
+            <p>Tecnología inteligente, ahorro real.</p>
+            <p>Equipos eficientes para consumir mejor.</p>
+        </div>
+
+        <!-- Enlaces de navegación -->
+        <div>
+            <h2>EXPLORA</h2>
+            <nav class="pie-enlaces" aria-label="Navegación del pie">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+
+        <!-- Información académica y fuente -->
+        <div>
+            <h2>PROYECTO ACADÉMICO</h2>
+            <p>Ingeniería Web I</p>
+            <p>IU Digital de Antioquia · 2026-2</p>
+            <p>Desarrollado por Alejandro Serna</p>
+            <p>Fuente de referencia:
+                <a href="https://www.xm.com.co"
+                   target="_blank" rel="noopener noreferrer">XM</a>
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Franja inferior -->
+    <div class="pie-inferior">
+        <small>© 2026 AhorraTech · Proyecto académico</small>
+        <small>Productos y precios ilustrativos. No se realizan ventas.</small>
+    </div>
+
+</footer>
 
 </body>
 </html>

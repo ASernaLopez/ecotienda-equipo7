@@ -37,25 +37,28 @@
 <body class="container py-3">
     <!-- header: el ENCABEZADO de la pagina (logo, titulo y menu).
          class="encabezado": una clase PROPIA; su estilo esta en css/estilos.css (.encabezado) -->
-    <header class="encabezado">
-        <!-- h1: el titulo principal (solo debe haber uno por pagina) -->
-        <h1>AhorraTech</h1>
-        <!-- p: un parrafo de texto -->
-        <p>Tecnología inteligente, ahorro real.</p>
-        <!-- nav: el MENU de navegacion. class="menu": su estilo esta en estilos.css -->
-        <nav class="menu">
-            <!-- a (ancla): un ENLACE. href: a donde lleva; el texto de adentro es lo que se ve -->
-            <!-- Este lleva a esta misma pagina, index.html -->
-            <a href="index.html">Inicio</a>
-            <!-- Este lleva a la pagina del catalogo (se crea en el paso 3) -->
-            <a href="catalogo.html">Catálogo</a>
-            <!-- Este lleva a la pagina de nosotros (se crea en el paso 4) -->
-            <a href="nosotros.html">Nosotros</a> 
-            <a href="contacto.html">Contacto</a>
-        <!-- Cierra el menu -->
-        </nav>
-    <!-- Cierra el encabezado -->
-    </header>
+    
+<!-- ENCABEZADO: marca a la izquierda y menú a la derecha -->
+<header class="encabezado encabezado--editorial">
+
+    <!-- Marca principal de AhorraTech -->
+    <h1 class="marca">
+        <a href="index.html" aria-label="AhorraTech - Inicio">
+            <span class="marca-icono" aria-hidden="true">⚡</span>
+            <span>AHORRA<span class="marca-acento">TECH</span></span>
+        </a>
+    </h1>
+
+    <!-- Menú de navegación entre las cuatro páginas -->
+    <nav class="menu" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+</header>
+
 
     <!-- main: el contenido PRINCIPAL de la pagina (lo que cambia de una pagina a otra) -->
     <main>
@@ -68,6 +71,64 @@
             1.612 COP/kWh en septiembre de 2026.
         <!-- Cierra el aviso -->
         </div>
+
+        
+<!-- HERO: presentación principal de AhorraTech -->
+<section class="inicio-hero" aria-labelledby="hero-titulo">
+
+    <!-- Columna izquierda: mensaje comercial -->
+    <div class="inicio-hero__contenido">
+
+        <span class="inicio-hero__etiqueta">
+            TECNOLOGÍA EFICIENTE
+        </span>
+
+        <h2 id="hero-titulo">
+            Menos consumo.
+            <span>Más futuro.</span>
+        </h2>
+
+        <p>
+            Encuentra equipos inteligentes, compara su consumo
+            y descubre cuánto puedes ahorrar.
+        </p>
+
+        <!-- Botón hacia el catálogo -->
+        <a href="catalogo.html" class="inicio-hero__boton">
+            Explorar catálogo &rarr;
+        </a>
+
+    </div>
+
+    <!-- Columna derecha: panel visual -->
+    <div class="inicio-hero__panel">
+
+        <div class="inicio-hero__icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="62" height="62"
+                 fill="none" stroke="currentColor"
+                 stroke-width="1.5" stroke-linecap="round"
+                 stroke-linejoin="round">
+                <path d="M9 18h6M10 22h4"/>
+                <path d="M8 14c-1.3-1.1-2-2.7-2-4.5a6 6 0 0 1 12 0c0 1.8-.7 3.4-2 4.5-.8.7-1 1.5-1 3h-6c0-1.5-.2-2.3-1-3Z"/>
+            </svg>
+        </div>
+
+        <span class="inicio-hero__subtitulo">
+            ELIGE CON INTELIGENCIA
+        </span>
+
+        <h3>Eficiencia en cada decisión.</h3>
+
+        <div class="inicio-hero__indicadores" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </div>
+
+</section>
+
 
         <!-- section: una SECCION de la pagina, con su propio tema.
              id="intro" (de introduccion): un nombre UNICO que inventamos (no se repite en la pagina);
@@ -123,15 +184,54 @@
     </main>
 
     <!-- footer: el PIE de pagina (fuentes, autores, derechos). class="pie": estilo en estilos.css -->
-    <footer class="pie">
-        <!-- Un enlace a XM, la empresa que publica los precios de la energia en Colombia.
-             target="_blank": el enlace se abre en OTRA pestana, sin cerrar la tienda -->
-        <p>Fuente de los precios: <a href="https://www.xm.com.co" target="_blank">XM</a>.
-           Los productos y sus precios son de ejemplo.</p>
-        <!-- El curso y la institucion -->
-        <p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p>
-    <!-- Cierra el pie de pagina -->
-    </footer>
+    
+<!-- FOOTER: información y navegación del sitio -->
+<footer class="pie pie--editorial">
+
+    <div class="pie-columnas">
+
+        <!-- Identidad de la tienda -->
+        <div>
+            <strong class="pie-marca">
+                AHORRA<span>TECH</span>
+            </strong>
+            <p>Tecnología inteligente, ahorro real.</p>
+            <p>Equipos eficientes para consumir mejor.</p>
+        </div>
+
+        <!-- Enlaces de navegación -->
+        <div>
+            <h2>EXPLORA</h2>
+            <nav class="pie-enlaces" aria-label="Navegación del pie">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catálogo</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+
+        <!-- Información académica y fuente -->
+        <div>
+            <h2>PROYECTO ACADÉMICO</h2>
+            <p>Ingeniería Web I</p>
+            <p>IU Digital de Antioquia · 2026-2</p>
+            <p>Desarrollado por Alejandro Serna</p>
+            <p>Fuente de referencia:
+                <a href="https://www.xm.com.co"
+                   target="_blank" rel="noopener noreferrer">XM</a>
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Franja inferior -->
+    <div class="pie-inferior">
+        <small>© 2026 AhorraTech · Proyecto académico</small>
+        <small>Productos y precios ilustrativos. No se realizan ventas.</small>
+    </div>
+
+</footer>
+
 <!-- Cierra el cuerpo: aqui termina lo que se ve -->
 </body>
 <!-- Cierra la pagina -->
