@@ -1,5 +1,5 @@
 // =============================================================
-// EcoTienda: el catalogo y el carrito, con JavaScript
+// AhorraTech: catálogo y carrito con JavaScript.
 // Cada linea tiene un comentario: QUE hace y PARA QUE.
 // =============================================================
 
@@ -141,10 +141,25 @@ function mostrarProductos(categoria) {
             <article class="tarjeta">
                 <span class="categoria">${nombreCategoria(producto.categoria)}</span>
                 <h3>${producto.nombre}</h3>
-                <p>Reemplaza un equipo de ${producto.wattsAntes} W.
-                   Ahorra <span class="ahorro">${ahorroKwhMes(producto).toFixed(1)} kWh</span> al mes.</p>
+                
+                <p>${producto.categoria === "solar"
+                ? "Potencia de referencia:"
+                : "Reemplaza un equipo de"} ${producto.wattsAntes} W.</p>
+
+                <p>${producto.categoria === "solar"
+                ? "Energía mensual teórica:"
+                : "Ahorro energético estimado:"}
+                <span class="ahorro">${ahorroKwhMes(producto).toFixed(1)} kWh/mes</span>
+                </p>
+
                 <p class="precio">${pesos(producto.precio)}</p>
-                <p>Ahorro al mes: <span class="ahorro">${pesos(ahorroPesosMes(producto))}</span></p>
+
+                <p>${producto.categoria === "solar"
+                ? "Valor teórico de esa energía:"
+                : "Ahorro mensual estimado:"}
+                <span class="ahorro">${pesos(ahorroPesosMes(producto))}</span>
+                </p>
+
                 <button class="btn btn-primary btn-sm" data-id="${producto.id}">Agregar al carrito</button>
             </article>`;
     }
@@ -212,9 +227,10 @@ function mostrarCarrito() {
         // Math.ceil redondea HACIA ARRIBA: 18.9 -> 19 (con 18 meses todavia no alcanza)
         const meses = Math.ceil(total / ahorroMes);
         // Escribe el ahorro y los meses en <p id="ahorro">, con un template string.
-        // Ejemplo: "Ahorra $64.410 al mes: la compra se paga sola en 19 meses."
+        
+        // Muestra el ahorro mensual y la recuperación simple estimada.
         document.querySelector("#ahorro").textContent =
-            `Ahorra ${pesos(ahorroMes)} al mes: la compra se paga sola en ${meses} meses.`;
+        `Ahorro estimado: ${pesos(ahorroMes)}/mes. Recuperación simple estimada: ${meses} meses.`;
     }
 }
 
@@ -277,5 +293,26 @@ document.querySelector("#vaciar").addEventListener("click", function () {
 // --- Al cargar la pagina ---
 // Llama las funciones apenas se abre la pagina:
 // muestra todos los productos ("todas") y el carrito vacio
-mostrarProductos("todas");
+
+/* Categoría recibida desde la página de inicio */
+const parametros = new URLSearchParams(window.location.search);
+const categoriaEnlace = parametros.get("categoria");
+
+// Solo aceptamos las categorías existentes.
+const categoriasValidas = ["iluminacion", "electrodomesticos", "solar"];
+const categoriaInicial = categoriasValidas.includes(categoriaEnlace)
+  ? categoriaEnlace
+  : "todas";
+
+// Marca como activo el filtro correspondiente.
+document.querySelectorAll(".filtro").forEach(function (boton) {
+  boton.classList.toggle(
+    "activo",
+    boton.dataset.categoria === categoriaInicial
+  );
+});
+
+// Muestra la categoría elegida y prepara el carrito.
+mostrarProductos(categoriaInicial);
 mostrarCarrito();
+

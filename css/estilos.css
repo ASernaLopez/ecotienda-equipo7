@@ -26,7 +26,9 @@ body {
   color: #1F2933;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: #142D4E;
   font-weight: 700;
 }
@@ -457,26 +459,6 @@ a[target=_blank] {
   margin: 12px 0 24px;
 }
 
-/* Indicadores decorativos de colores */
-.inicio-hero__indicadores {
-  display: flex;
-  gap: 7px;
-}
-.inicio-hero__indicadores span {
-  width: 30px;
-  height: 6px;
-  border-radius: 20px;
-  background: #16A6A1;
-}
-.inicio-hero__indicadores span:nth-child(2) {
-  background: #F2B544;
-  width: 20px;
-}
-.inicio-hero__indicadores span:nth-child(3) {
-  background: #FC785A;
-  width: 12px;
-}
-
 /* Tablet y celular: columnas apiladas */
 @media (max-width: 992px) {
   .inicio-hero {
@@ -496,5 +478,342 @@ a[target=_blank] {
   .inicio-hero__panel {
     min-height: 240px;
     padding: 28px 18px;
+  }
+}
+/* Tarjetas: contenido vertical y botones alineados */
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(20, 45, 78, 0.15);
+}
+.tarjeta button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Portada: eliminar el borde amarillo de la introducción */
+#intro {
+  border-left: none;
+}
+
+/* Efecto exclusivo para las tres tarjetas de beneficios */
+.tarjetas > article.tarjeta {
+  position: relative;
+  overflow: hidden;
+  border-top: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tarjetas > article.tarjeta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #16a6a1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.tarjetas > article.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(20, 45, 78, 0.16);
+}
+.tarjetas > article.tarjeta:hover::before {
+  transform: scaleX(1);
+}
+
+/* Recuadro informativo de la portada */
+#intro {
+  background: linear-gradient(110deg, #e8f7f5, #ffffff 70%);
+  border: 1px solid rgba(22, 166, 161, 0.18);
+  box-shadow: 0 6px 20px rgba(20, 45, 78, 0.05);
+}
+#intro h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+  background-color: #16a6a1;
+  border-radius: 4px;
+}
+
+/* Comparativo energético del hero */
+.inicio-hero__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.inicio-hero__comparacion {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.inicio-hero__equipo {
+  padding: 20px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+}
+.inicio-hero__equipo h3 {
+  margin: 12px 0;
+  color: #ffffff;
+  font-size: 38px;
+  font-weight: 800;
+}
+.inicio-hero__equipo p {
+  margin: 0;
+  color: #dbe8ef;
+  font-size: 12px;
+}
+
+/* Destacamos el equipo eficiente */
+.inicio-hero__equipo--destacado {
+  border-color: #16a6a1;
+  background: rgba(22, 166, 161, 0.16);
+}
+.inicio-hero__equipo--destacado h3 {
+  color: #65e0d5;
+}
+
+.inicio-hero__versus {
+  color: #f2b544;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.inicio-hero__ahorro {
+  margin: 0;
+  padding: 12px;
+  border-radius: 10px;
+  background: #16a6a1;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* En celulares, el comparativo se organiza verticalmente */
+@media (max-width: 576px) {
+  .inicio-hero__comparacion {
+    grid-template-columns: 1fr;
+  }
+  .inicio-hero__equipo h3 {
+    font-size: 30px;
+  }
+}
+/* Simulador interactivo de la portada */
+.inicio-hero__simulador {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  text-align: left;
+}
+.inicio-hero__simulador label {
+  display: block;
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Control para seleccionar las horas */
+.inicio-hero__control {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.inicio-hero__control input[type=range] {
+  flex: 1;
+  min-width: 0;
+  accent-color: #55ded2;
+  cursor: pointer;
+}
+.inicio-hero__control input[type=range]:focus-visible {
+  outline: 2px solid #f2b544;
+  outline-offset: 5px;
+}
+.inicio-hero__control strong {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #244665;
+  color: #6ce2d8;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+/* Resultados calculados por JavaScript */
+.inicio-hero__resultados {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.inicio-hero__resultados > div {
+  padding: 14px 10px;
+  border-radius: 10px;
+  background: rgba(22, 166, 161, 0.14);
+  text-align: center;
+}
+.inicio-hero__resultados span {
+  display: block;
+  margin-bottom: 8px;
+  color: #dbe8ef;
+  font-size: 11px;
+}
+.inicio-hero__resultados strong {
+  display: block;
+  color: #6ce2d8;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+/* Aclaración de la estimación */
+.inicio-hero__nota {
+  margin: 12px 0 0;
+  color: #b8cadc;
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Adaptación de los resultados a celulares */
+@media (max-width: 576px) {
+  .inicio-hero__panel {
+    padding: 18px;
+  }
+  .inicio-hero__resultados {
+    grid-template-columns: 1fr;
+  }
+}
+/* Categorías principales de la portada */
+.inicio-categorias {
+  margin: 44px 0 36px;
+}
+
+.inicio-categorias__encabezado {
+  margin-bottom: 22px;
+}
+.inicio-categorias__encabezado span {
+  color: #16a6a1;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+.inicio-categorias__encabezado h2 {
+  margin: 8px 0;
+  color: #142d4e;
+  font-weight: 800;
+}
+.inicio-categorias__encabezado p {
+  color: #52667c;
+}
+
+/* Rejilla adaptable a distintos tamaños */
+.inicio-categorias__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Tarjetas con efecto interactivo */
+.inicio-categorias__tarjeta {
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  padding: 26px;
+  border: 1px solid #dce6ee;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #142d4e;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(20, 45, 78, 0.07);
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.inicio-categorias__tarjeta h3 {
+  margin: 18px 0 10px;
+  font-size: 24px;
+  font-weight: 800;
+}
+.inicio-categorias__tarjeta p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.inicio-categorias__tarjeta:hover {
+  transform: translateY(-6px);
+  background: #142d4e;
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(20, 45, 78, 0.18);
+}
+.inicio-categorias__tarjeta:focus-visible {
+  outline: 3px solid #16a6a1;
+  outline-offset: 4px;
+}
+
+.inicio-categorias__numero {
+  color: #16a6a1;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.inicio-categorias__enlace {
+  margin-top: auto;
+  padding-top: 16px;
+  color: #16a6a1;
+  font-weight: 700;
+}
+
+/* Tabletas y celulares */
+@media (max-width: 992px) {
+  .inicio-categorias__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 576px) {
+  .inicio-categorias__grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Títulos visibles al pasar el mouse por las categorías */
+.inicio-categorias__tarjeta h3 {
+  transition: color 0.3s ease;
+}
+.inicio-categorias__tarjeta:hover h3 {
+  color: #ffffff;
+}
+
+/* Menú compacto para celulares */
+@media (max-width: 576px) {
+  .encabezado--editorial {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+  .encabezado--editorial .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 2px;
+  }
+  .encabezado--editorial .menu > a {
+    display: block;
+    padding: 8px 10px;
   }
 }

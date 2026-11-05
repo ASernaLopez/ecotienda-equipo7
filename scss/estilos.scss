@@ -1,5 +1,5 @@
 // =============================================================
-// Hoja de estilos de EcoTienda, escrita en Sass.
+// Hoja de estilos de AhorraTech, escrita en Sass.
 // Se compila a css/estilos.css con:
 //     npx sass scss/estilos.scss css/estilos.css --no-source-map
 // El navegador NO lee este archivo: lee el .css que produce Sass.
@@ -15,178 +15,189 @@
    La interpolación inserta los valores de Sass. */
 
 :root {
-    --color-principal: #{$color-principal};     // Azul oscuro
-    --color-secundario: #{$color-secundario};   // Turquesa
-    --color-acento: #{$color-acento};           // Amarillo
-    --color-fondo: #{$color-fondo};             // Fondo claro
-    --color-texto: #{$color-texto};             // Texto oscuro
-    --color-suave: #{$color-suave};             // Bordes claros
+    --color-principal: #{$color-principal}; // Azul oscuro
+    --color-secundario: #{$color-secundario}; // Turquesa
+    --color-acento: #{$color-acento}; // Amarillo
+    --color-fondo: #{$color-fondo}; // Fondo claro
+    --color-texto: #{$color-texto}; // Texto oscuro
+    --color-suave: #{$color-suave}; // Bordes claros
 }
 
 
 // La pagina entera
 body {
-    font-family: "Poppins", Arial, sans-serif;   // la fuente de Google Fonts; si no carga, Arial
-    background-color: $color-fondo;              // fondo claro (variable de Sass)
-    color: $color-texto;                         // color de la letra
+    font-family: "Poppins", Arial, sans-serif; // la fuente de Google Fonts; si no carga, Arial
+    background-color: $color-fondo; // fondo claro (variable de Sass)
+    color: $color-texto; // color de la letra
 }
 
 // Los titulos
-h1, h2, h3 {
-    color: $color-principal;    // en verde oscuro
-    font-weight: 700;           // en negrilla
+h1,
+h2,
+h3 {
+    color: $color-principal; // en verde oscuro
+    font-weight: 700; // en negrilla
 }
 
 // --- ANIDAMIENTO: las reglas de adentro solo aplican dentro de .encabezado ---
 .encabezado {
-    background-color: $color-principal;   // fondo verde oscuro
-    margin-bottom: 24px;                  // espacio debajo
-    @include caja(24px);            // el mixin con 24px de relleno
+    background-color: $color-principal; // fondo verde oscuro
+    margin-bottom: 24px; // espacio debajo
+    @include caja(24px); // el mixin con 24px de relleno
 
-    h1 {                            // se compila como .encabezado h1
-        color: white;               // titulo en blanco
+    h1 {
+        // se compila como .encabezado h1
+        color: white; // titulo en blanco
     }
 
     p {
-    color: #EAF8F8; // Blanco azulado: contrasta con el fondo azul
+        color: #EAF8F8; // Blanco azulado: contrasta con el fondo azul
     }
 
-    @media (max-width: $celular) {  // la media query tambien se anida
-        padding: 16px;              // en celular, menos relleno
+    @media (max-width: $celular) {
+        // la media query tambien se anida
+        padding: 16px; // en celular, menos relleno
 
         h1 {
-            font-size: 1.6rem;      // y el titulo mas pequeno
+            font-size: 1.6rem; // y el titulo mas pequeno
         }
     }
 }
 
 // La seccion con id="intro"
 #intro {
-    background-color: white;                // fondo blanco
-    padding: 16px 24px;                     // relleno: 16px arriba y abajo, 24px a los lados
-    margin-bottom: 24px;                    // espacio debajo
-    border-left: 6px solid $color-acento;   // borde amarillo solo a la izquierda
-    border-radius: $radio;                  // esquinas redondeadas
+    background-color: white; // fondo blanco
+    padding: 16px 24px; // relleno: 16px arriba y abajo, 24px a los lados
+    margin-bottom: 24px; // espacio debajo
+    border-left: 6px solid $color-acento; // borde amarillo solo a la izquierda
+    border-radius: $radio; // esquinas redondeadas
 }
 
 // --- Menu con Flexbox ---
 .menu {
-    display: flex;          // los enlaces en fila
-    flex-wrap: wrap;        // si no caben, pasan a otra linea
-    gap: 8px;               // espacio entre los enlaces
+    display: flex; // los enlaces en fila
+    flex-wrap: wrap; // si no caben, pasan a otra linea
+    gap: 8px; // espacio entre los enlaces
 
     @media (max-width: $celular) {
-        flex-direction: column;   // en celular, el menu en columna
+        flex-direction: column; // en celular, el menu en columna
     }
 
-    > a {                           // se compila como .menu > a
-        color: white;               // letra blanca
-        text-decoration: none;      // sin subrayado
-        padding: 6px 16px;          // relleno: 6px arriba y abajo, 16px a los lados
-        border: 2px solid rgba(255, 255, 255, 0.5);   // borde blanco semitransparente
-        border-radius: 999px;       // forma de pildora
-        transition: background-color 0.3s, color 0.3s;   // cambio suave en 0,3 segundos
+    >a {
+        // se compila como .menu > a
+        color: white; // letra blanca
+        text-decoration: none; // sin subrayado
+        padding: 6px 16px; // relleno: 6px arriba y abajo, 16px a los lados
+        border: 2px solid rgba(255, 255, 255, 0.5); // borde blanco semitransparente
+        border-radius: 999px; // forma de pildora
+        transition: background-color 0.3s, color 0.3s; // cambio suave en 0,3 segundos
 
-        &:hover {                   // & = el selector de afuera: .menu > a:hover
-            background-color: white;        // con el mouse encima: fondo blanco...
-            color: $color-principal;        // ...y letra verde
+        &:hover {
+            // & = el selector de afuera: .menu > a:hover
+            background-color: white; // con el mouse encima: fondo blanco...
+            color: $color-principal; // ...y letra verde
         }
 
-        &:focus {                   // .menu > a:focus: se llego con la tecla Tab
-            outline: 3px solid $color-acento;   // contorno amarillo
+        &:focus {
+            // .menu > a:focus: se llego con la tecla Tab
+            outline: 3px solid $color-acento; // contorno amarillo
         }
     }
 }
 
 // --- Tarjetas con Grid ---
 .tarjetas {
-    display: grid;                           // rejilla
-    grid-template-columns: repeat(3, 1fr);   // 3 columnas del mismo ancho
-    gap: 16px;                               // espacio entre tarjetas
-    margin-bottom: 24px;                     // espacio debajo
+    display: grid; // rejilla
+    grid-template-columns: repeat(3, 1fr); // 3 columnas del mismo ancho
+    gap: 16px; // espacio entre tarjetas
+    margin-bottom: 24px; // espacio debajo
 
     @media (max-width: $tablet) {
-        grid-template-columns: repeat(2, 1fr);   // en tablet, 2 columnas
+        grid-template-columns: repeat(2, 1fr); // en tablet, 2 columnas
     }
 
     @media (max-width: $celular) {
-        grid-template-columns: 1fr;              // en celular, 1 columna
+        grid-template-columns: 1fr; // en celular, 1 columna
     }
 }
 
 // Cada tarjeta
 .tarjeta {
-    background-color: white;            // fondo blanco
-    border: 1px solid $color-suave;     // borde fino verde claro
-    @include caja;                  // el mixin con su valor por defecto (16px)
-    transition: transform 0.3s;     // el movimiento sera suave
+    background-color: white; // fondo blanco
+    border: 1px solid $color-suave; // borde fino verde claro
+    @include caja; // el mixin con su valor por defecto (16px)
+    transition: transform 0.3s; // el movimiento sera suave
 
-    &:hover {                       // .tarjeta:hover: el mouse encima
-        transform: translateY(-6px);   // sube 6 pixeles
+    &:hover {
+        // .tarjeta:hover: el mouse encima
+        transform: translateY(-6px); // sube 6 pixeles
     }
 
-    &:first-child {                 // .tarjeta:first-child: la primera tarjeta
-        border-top: 6px solid $color-acento;   // borde amarillo grueso arriba
+    &:first-child {
+        // .tarjeta:first-child: la primera tarjeta
+        border-top: 6px solid $color-acento; // borde amarillo grueso arriba
     }
 
-    p:nth-child(2) {                // .tarjeta p:nth-child(2): el segundo hijo, si es un p
-        min-height: 48px;           // altura minima, para alinear los textos
+    p:nth-child(2) {
+        // .tarjeta p:nth-child(2): el segundo hijo, si es un p
+        min-height: 48px; // altura minima, para alinear los textos
     }
 }
 
 // El precio de cada producto
 .precio {
-    color: $color-principal;    // en verde oscuro
-    font-size: 1.3rem;          // 1,3 veces el tamano normal
-    font-weight: 700;           // en negrilla
+    color: $color-principal; // en verde oscuro
+    font-size: 1.3rem; // 1,3 veces el tamano normal
+    font-weight: 700; // en negrilla
 }
 
 // --- Lo que muestra cada producto (lo genera JavaScript) ---
 // La etiqueta de la categoria
 .categoria {
-    display: inline-block;          // ocupa solo el ancho de su texto
-    padding: 2px 10px;              // relleno pequeno
-    border-radius: 999px;           // forma de pildora
+    display: inline-block; // ocupa solo el ancho de su texto
+    padding: 2px 10px; // relleno pequeno
+    border-radius: 999px; // forma de pildora
     background-color: $color-suave; // fondo verde claro
-    font-size: 0.8rem;              // letra pequena
+    font-size: 0.8rem; // letra pequena
 }
 
 // El ahorro (kWh y pesos)
 .ahorro {
     color: #0E7774; // Turquesa oscuro: destaca el ahorro energético
-    font-weight: 700;       // en negrilla
+    font-weight: 700; // en negrilla
 }
 
 // --- Filtros: botones en fila ---
 .filtros {
-    display: flex;          // los botones en fila
-    flex-wrap: wrap;        // si no caben, pasan a otra linea
-    gap: 8px;               // espacio entre botones
-    margin-bottom: 16px;    // espacio debajo
+    display: flex; // los botones en fila
+    flex-wrap: wrap; // si no caben, pasan a otra linea
+    gap: 8px; // espacio entre botones
+    margin-bottom: 16px; // espacio debajo
 }
 
 // Cada boton de filtro
 .filtro {
-    border: 2px solid $color-principal;   // borde verde
-    background-color: white;              // fondo blanco
-    color: $color-principal;              // letra verde
-    padding: 6px 16px;                    // relleno
-    border-radius: 999px;                 // forma de pildora
-    transition: background-color 0.3s;    // cambio de fondo suave
+    border: 2px solid $color-principal; // borde verde
+    background-color: white; // fondo blanco
+    color: $color-principal; // letra verde
+    padding: 6px 16px; // relleno
+    border-radius: 999px; // forma de pildora
+    transition: background-color 0.3s; // cambio de fondo suave
 
     &:hover,
-    &.activo {                      // &.activo = .filtro.activo: el boton elegido
-        background-color: $color-principal;   // con el mouse encima o elegido: fondo verde...
-        color: white;                         // ...y letra blanca
+    &.activo {
+        // &.activo = .filtro.activo: el boton elegido
+        background-color: $color-principal; // con el mouse encima o elegido: fondo verde...
+        color: white; // ...y letra blanca
     }
 }
 
 // --- Catalogo: productos a la izquierda y carrito a la derecha ---
 .catalogo {
-    display: grid;                  // rejilla
+    display: grid; // rejilla
     grid-template-columns: 3fr 1fr; // 2 columnas: la de productos 3 veces mas ancha que la del carrito
-    gap: 16px;                      // espacio entre las dos
-    align-items: start;             // cada columna arriba, sin estirarse
+    gap: 16px; // espacio entre las dos
+    align-items: start; // cada columna arriba, sin estirarse
 
     @media (max-width: $tablet) {
         grid-template-columns: 1fr; // en tablet y celular, el carrito pasa abajo
@@ -195,45 +206,45 @@ h1, h2, h3 {
 
 // El carrito
 #carrito {
-    background-color: white;            // fondo blanco
-    border: 2px solid $color-acento;    // borde amarillo
-    @include caja;                      // relleno, esquinas y sombra (el mixin)
-    position: sticky;               // el carrito se queda visible al bajar
-    top: 16px;                      // a 16px del borde de arriba de la pantalla
+    background-color: white; // fondo blanco
+    border: 2px solid $color-acento; // borde amarillo
+    @include caja; // relleno, esquinas y sombra (el mixin)
+    position: sticky; // el carrito se queda visible al bajar
+    top: 16px; // a 16px del borde de arriba de la pantalla
 }
 
 // Los enlaces que abren otra pestana
 a[target="_blank"] {
-    color: $color-principal;    // en verde oscuro
-    font-weight: 700;           // en negrilla
+    color: $color-principal; // en verde oscuro
+    font-weight: 700; // en negrilla
 }
 
 // El pie de pagina
 .pie {
-    margin-top: 24px;                   // espacio encima
-    padding-top: 12px;                  // relleno arriba
+    margin-top: 24px; // espacio encima
+    padding-top: 12px; // relleno arriba
     border-top: 1px solid $color-suave; // linea fina arriba
-    color: #52606D;                     // letra gris
-    font-size: 0.9rem;                  // letra un poco mas pequena
+    color: #52606D; // letra gris
+    font-size: 0.9rem; // letra un poco mas pequena
 }
 
 // --- Bootstrap personalizado, sin tocar su archivo ---
 // Los botones primarios con los colores de la tienda.
 // Bootstrap lee sus colores de variables --bs-...: aqui se les dan otros valores
 .btn-primary {
-    --bs-btn-bg: var(--color-principal);               // fondo del boton: verde
-    --bs-btn-border-color: var(--color-principal);     // borde: verde
-    --bs-btn-hover-bg: var(--color-acento);            // con el mouse encima: fondo amarillo
-    --bs-btn-hover-border-color: var(--color-acento);  // y borde amarillo
-    --bs-btn-hover-color: #1F2933;                     // y letra oscura
+    --bs-btn-bg: var(--color-principal); // fondo del boton: verde
+    --bs-btn-border-color: var(--color-principal); // borde: verde
+    --bs-btn-hover-bg: var(--color-acento); // con el mouse encima: fondo amarillo
+    --bs-btn-hover-border-color: var(--color-acento); // y borde amarillo
+    --bs-btn-hover-color: #1F2933; // y letra oscura
 }
 
 // El aviso (alert) con el amarillo de la tienda
 .alert-warning {
-    background-color: #FFF8E1;              // fondo amarillo muy claro
-    border-color: $color-acento;            // borde amarillo
-    border-left: 6px solid $color-acento;   // borde grueso a la izquierda
-    border-radius: $radio;                  // esquinas redondeadas
+    background-color: #FFF8E1; // fondo amarillo muy claro
+    border-color: $color-acento; // borde amarillo
+    border-left: 6px solid $color-acento; // borde grueso a la izquierda
+    border-radius: $radio; // esquinas redondeadas
 }
 
 
@@ -286,7 +297,7 @@ a[target="_blank"] {
     }
 
     /* Personalización de los enlaces */
-    .menu > a {
+    .menu>a {
         color: $color-principal;
         border: 1px solid transparent;
         border-radius: 8px;
@@ -388,7 +399,7 @@ a[target="_blank"] {
             width: 100%;
             flex-direction: column;
 
-            > a {
+            >a {
                 width: 100%;
             }
         }
@@ -520,28 +531,7 @@ a[target="_blank"] {
     }
 }
 
-/* Indicadores decorativos de colores */
-.inicio-hero__indicadores {
-    display: flex;
-    gap: 7px;
 
-    span {
-        width: 30px;
-        height: 6px;
-        border-radius: 20px;
-        background: $color-secundario;
-
-        &:nth-child(2) {
-            background: $color-acento;
-            width: 20px;
-        }
-
-        &:nth-child(3) {
-            background: #FC785A;
-            width: 12px;
-        }
-    }
-}
 
 /* Tablet y celular: columnas apiladas */
 @media (max-width: $tablet) {
@@ -565,5 +555,392 @@ a[target="_blank"] {
     .inicio-hero__panel {
         min-height: 240px;
         padding: 28px 18px;
+    }
+}
+
+
+/* Tarjetas: contenido vertical y botones alineados */
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    // Efecto suave al pasar el cursor.
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 24px rgba(20, 45, 78, 0.15);
+    }
+
+    // Mantiene el botón en la parte inferior.
+    button {
+        margin-top: auto;
+        align-self: flex-start;
+    }
+}
+
+
+/* Portada: eliminar el borde amarillo de la introducción */
+#intro {
+    border-left: none;
+}
+
+/* Efecto exclusivo para las tres tarjetas de beneficios */
+.tarjetas>article.tarjeta {
+    position: relative;
+    overflow: hidden;
+    border-top: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    // Línea turquesa oculta inicialmente.
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: #16a6a1;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+
+    // Eleva la tarjeta cuando pasa el mouse.
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 28px rgba(20, 45, 78, 0.16);
+
+        &::before {
+            transform: scaleX(1);
+        }
+    }
+}
+
+
+/* Recuadro informativo de la portada */
+#intro {
+    background: linear-gradient(110deg, #e8f7f5, #ffffff 70%);
+    border: 1px solid rgba(22, 166, 161, 0.18);
+    box-shadow: 0 6px 20px rgba(20, 45, 78, 0.05);
+
+    // Detalle turquesa fijo debajo del título.
+    h2::after {
+        content: "";
+        display: block;
+        width: 48px;
+        height: 4px;
+        margin-top: 10px;
+        margin-bottom: 14px;
+        background-color: #16a6a1;
+        border-radius: 4px;
+    }
+}
+
+
+/* Comparativo energético del hero */
+.inicio-hero__panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px;
+    padding: 28px;
+    text-align: center;
+}
+
+.inicio-hero__comparacion {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+}
+
+.inicio-hero__equipo {
+    padding: 20px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+
+    h3 {
+        margin: 12px 0;
+        color: #ffffff;
+        font-size: 38px;
+        font-weight: 800;
+    }
+
+    p {
+        margin: 0;
+        color: #dbe8ef;
+        font-size: 12px;
+    }
+}
+
+/* Destacamos el equipo eficiente */
+.inicio-hero__equipo--destacado {
+    border-color: #16a6a1;
+    background: rgba(22, 166, 161, 0.16);
+
+    h3 {
+        color: #65e0d5;
+    }
+}
+
+.inicio-hero__versus {
+    color: #f2b544;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.inicio-hero__ahorro {
+    margin: 0;
+    padding: 12px;
+    border-radius: 10px;
+    background: #16a6a1;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* En celulares, el comparativo se organiza verticalmente */
+@media (max-width: 576px) {
+    .inicio-hero__comparacion {
+        grid-template-columns: 1fr;
+    }
+
+    .inicio-hero__equipo h3 {
+        font-size: 30px;
+    }
+}
+
+
+/* Simulador interactivo de la portada */
+.inicio-hero__simulador {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    text-align: left;
+
+    label {
+        display: block;
+        margin-bottom: 12px;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 600;
+    }
+}
+
+/* Control para seleccionar las horas */
+.inicio-hero__control {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+
+    input[type="range"] {
+        flex: 1;
+        min-width: 0;
+        accent-color: #55ded2;
+        cursor: pointer;
+
+        &:focus-visible {
+            outline: 2px solid #f2b544;
+            outline-offset: 5px;
+        }
+    }
+
+    strong {
+        padding: 8px 12px;
+        border-radius: 8px;
+        background: #244665;
+        color: #6ce2d8;
+        white-space: nowrap;
+        font-size: 13px;
+    }
+}
+
+/* Resultados calculados por JavaScript */
+.inicio-hero__resultados {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+
+    >div {
+        padding: 14px 10px;
+        border-radius: 10px;
+        background: rgba(22, 166, 161, 0.14);
+        text-align: center;
+    }
+
+    span {
+        display: block;
+        margin-bottom: 8px;
+        color: #dbe8ef;
+        font-size: 11px;
+    }
+
+    strong {
+        display: block;
+        color: #6ce2d8;
+        font-size: 21px;
+        font-weight: 800;
+    }
+}
+
+/* Aclaración de la estimación */
+.inicio-hero__nota {
+    margin: 12px 0 0;
+    color: #b8cadc;
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Adaptación de los resultados a celulares */
+@media (max-width: 576px) {
+    .inicio-hero__panel {
+        padding: 18px;
+    }
+
+    .inicio-hero__resultados {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Categorías principales de la portada */
+.inicio-categorias {
+    margin: 44px 0 36px;
+}
+
+.inicio-categorias__encabezado {
+    margin-bottom: 22px;
+
+    span {
+        color: #16a6a1;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+    }
+
+    h2 {
+        margin: 8px 0;
+        color: #142d4e;
+        font-weight: 800;
+    }
+
+    p {
+        color: #52667c;
+    }
+}
+
+/* Rejilla adaptable a distintos tamaños */
+.inicio-categorias__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* Tarjetas con efecto interactivo */
+.inicio-categorias__tarjeta {
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+    padding: 26px;
+    border: 1px solid #dce6ee;
+    border-radius: 16px;
+    background: #ffffff;
+    color: #142d4e;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(20, 45, 78, 0.07);
+    transition: transform 0.3s ease, background 0.3s ease,
+        box-shadow 0.3s ease;
+
+    h3 {
+        margin: 18px 0 10px;
+        font-size: 24px;
+        font-weight: 800;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+        background: #142d4e;
+        color: #ffffff;
+        box-shadow: 0 14px 28px rgba(20, 45, 78, 0.18);
+    }
+
+    &:focus-visible {
+        outline: 3px solid #16a6a1;
+        outline-offset: 4px;
+    }
+}
+
+.inicio-categorias__numero {
+    color: #16a6a1;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.inicio-categorias__enlace {
+    margin-top: auto;
+    padding-top: 16px;
+    color: #16a6a1;
+    font-weight: 700;
+}
+
+/* Tabletas y celulares */
+@media (max-width: 992px) {
+    .inicio-categorias__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .inicio-categorias__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Títulos visibles al pasar el mouse por las categorías */
+.inicio-categorias__tarjeta {
+    h3 {
+        transition: color 0.3s ease;
+    }
+
+    &:hover h3 {
+        color: #ffffff;
+    }
+}
+
+
+/* Menú compacto para celulares */
+@media (max-width: 576px) {
+    .encabezado--editorial {
+        padding: 14px 16px;
+        gap: 10px;
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
+            width: 100%;
+            gap: 2px;
+
+            // Reduce el espacio de cada enlace.
+            >a {
+                display: block;
+                padding: 8px 10px;
+            }
+        }
     }
 }
