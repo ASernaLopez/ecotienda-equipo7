@@ -214,7 +214,7 @@ a[target=_blank] {
 }
 
 /* =============================================
-   AHORRATECH - IDENTIDAD EDITORIAL
+    AHORRATECH - IDENTIDAD EDITORIAL
    ============================================= */
 /* Encabezado blanco con marca y navegación */
 .encabezado--editorial {
@@ -242,9 +242,6 @@ a[target=_blank] {
   color: #142D4E;
   text-decoration: none;
 }
-.encabezado--editorial {
-  /* Símbolo de energía */
-}
 .encabezado--editorial .marca-icono {
   display: grid;
   place-items: center;
@@ -256,9 +253,6 @@ a[target=_blank] {
 }
 .encabezado--editorial .marca-acento {
   color: #16A6A1;
-}
-.encabezado--editorial {
-  /* Personalización de los enlaces */
 }
 .encabezado--editorial .menu > a {
   color: #142D4E;

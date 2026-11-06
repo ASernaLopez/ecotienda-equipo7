@@ -1,6 +1,6 @@
 // =============================================================
 // AhorraTech: catálogo y carrito con JavaScript.
-// Cada linea tiene un comentario: QUE hace y PARA QUE.
+// Comentarios explicativos sobre las funciones y eventos del catálogo.
 // =============================================================
 
 // --- CONSTANTES: valores que no cambian. Se declaran con const ---
@@ -16,22 +16,38 @@ const DIAS_MES = 30;           // dias de un mes: para pasar el ahorro de un dia
 // wattsDespues = cuanto gasta el equipo NUEVO (0 si no gasta energia de la red)
 // horasDia     = cuantas horas al dia se usa
 const productos = [
-    { id: 1, nombre: "Bombillo LED 9 W", categoria: "iluminacion", precio: 8900,
-      wattsAntes: 60, wattsDespues: 9, horasDia: 5 },
-    { id: 2, nombre: "Panel LED 18 W", categoria: "iluminacion", precio: 35000,
-      wattsAntes: 40, wattsDespues: 18, horasDia: 8 },
-    { id: 3, nombre: "Reflector LED 50 W", categoria: "iluminacion", precio: 59000,
-      wattsAntes: 250, wattsDespues: 50, horasDia: 6 },
-    { id: 4, nombre: "Nevera eficiente", categoria: "electrodomesticos", precio: 1890000,
-      wattsAntes: 80, wattsDespues: 40, horasDia: 24 },
-    { id: 5, nombre: "Aire acondicionado inverter", categoria: "electrodomesticos", precio: 2100000,
-      wattsAntes: 1400, wattsDespues: 900, horasDia: 6 },
-    { id: 6, nombre: "Regleta con apagado automático", categoria: "electrodomesticos", precio: 65000,
-      wattsAntes: 15, wattsDespues: 0, horasDia: 20 },
-    { id: 7, nombre: "Calentador solar de agua", categoria: "solar", precio: 1200000,
-      wattsAntes: 3500, wattsDespues: 0, horasDia: 0.5 },
-    { id: 8, nombre: "Kit de panel solar 550 W", categoria: "solar", precio: 2400000,
-      wattsAntes: 550, wattsDespues: 0, horasDia: 4.5 }
+    {
+        id: 1, nombre: "Bombillo LED 9 W", categoria: "iluminacion", precio: 8900,
+        wattsAntes: 60, wattsDespues: 9, horasDia: 5
+    },
+    {
+        id: 2, nombre: "Panel LED 18 W", categoria: "iluminacion", precio: 35000,
+        wattsAntes: 40, wattsDespues: 18, horasDia: 8
+    },
+    {
+        id: 3, nombre: "Reflector LED 50 W", categoria: "iluminacion", precio: 59000,
+        wattsAntes: 250, wattsDespues: 50, horasDia: 6
+    },
+    {
+        id: 4, nombre: "Nevera eficiente", categoria: "electrodomesticos", precio: 1890000,
+        wattsAntes: 80, wattsDespues: 40, horasDia: 24
+    },
+    {
+        id: 5, nombre: "Aire acondicionado inverter", categoria: "electrodomesticos", precio: 2100000,
+        wattsAntes: 1400, wattsDespues: 900, horasDia: 6
+    },
+    {
+        id: 6, nombre: "Regleta con apagado automático", categoria: "electrodomesticos", precio: 65000,
+        wattsAntes: 15, wattsDespues: 0, horasDia: 20
+    },
+    {
+        id: 7, nombre: "Calentador solar de agua", categoria: "solar", precio: 1200000,
+        wattsAntes: 3500, wattsDespues: 0, horasDia: 0.5
+    },
+    {
+        id: 8, nombre: "Kit de panel solar 550 W", categoria: "solar", precio: 2400000,
+        wattsAntes: 550, wattsDespues: 0, horasDia: 4.5
+    }
 ];
 
 // --- VARIABLE: el carrito. Se declara con let porque SI cambia ---
@@ -249,7 +265,7 @@ for (const boton of botonesFiltro) {
             // ...y les quita la clase "activo" a todos (classList = las clases del elemento)
             otro.classList.remove("activo");
         }
-        // Le pone la clase "activo" solo al boton que se oprimio: el CSS lo pinta de verde
+        // Resalta en azul oscuro el filtro seleccionado.
         boton.classList.add("activo");
         // Vuelve a dibujar los productos, solo los de la categoria del boton.
         // dataset.categoria lee el atributo data-categoria del HTML.
@@ -291,8 +307,7 @@ document.querySelector("#vaciar").addEventListener("click", function () {
 });
 
 // --- Al cargar la pagina ---
-// Llama las funciones apenas se abre la pagina:
-// muestra todos los productos ("todas") y el carrito vacio
+// Muestra la categoría seleccionada o todos los productos y prepara el carrito.
 
 /* Categoría recibida desde la página de inicio */
 const parametros = new URLSearchParams(window.location.search);
