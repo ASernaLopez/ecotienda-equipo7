@@ -1,2 +1,13 @@
 node_modules/
 css/*.map
+
+# Base de datos SQLite
+api/datos/*.db
+
+# Archivos generados por Next.js
+front/.next/
+front/out/
+
+# Variables privadas
+.env
+.env.local
