@@ -1,0 +1,652 @@
+
+/* Colores principales de AhorraTech */
+:root {
+  --azul: #102a43;
+  --turquesa: #12a89d;
+  --amarillo: #f5c451;
+  --fondo: #f4f8fb;
+  --blanco: #ffffff;
+  --texto: #193449;
+}
+
+/* Configuración general */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Página de inicio */
+.inicio {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+
+.inicio-hero {
+  width: 100%;
+  max-width: 1100px;
+  padding: 85px 65px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #102a43, #194a61);
+  color: var(--blanco);
+  box-shadow: 0 20px 55px rgba(16, 42, 67, 0.15);
+}
+
+.inicio-etiqueta {
+  display: inline-block;
+  margin: 0 0 28px;
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+  color: var(--amarillo);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.inicio-hero h1 {
+  max-width: 800px;
+  margin: 0 0 26px;
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+.inicio-descripcion {
+  max-width: 650px;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #e1edf2;
+}
+
+.inicio-mensaje {
+  display: inline-block;
+  margin: 22px 0 0;
+  padding: 15px 22px;
+  border-left: 4px solid var(--turquesa);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 0 10px 10px 0;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 600px) {
+  .inicio {
+    padding: 20px 14px;
+  }
+
+  .inicio-hero {
+    padding: 55px 25px;
+    border-radius: 16px;
+  }
+
+  .inicio-hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .inicio-descripcion {
+    font-size: 17px;
+  }
+
+  .inicio-etiqueta {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+}
+
+
+/* Encabezado principal de AhorraTech */
+.encabezado {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background: var(--blanco);
+  border-bottom: 1px solid #dce7ed;
+  box-shadow: 0 3px 15px rgba(16, 42, 67, 0.05);
+}
+
+.encabezado-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.marca {
+  color: var(--azul);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.encabezado-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.encabezado-nav a {
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.encabezado-nav a:hover {
+  color: var(--turquesa);
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 600px) {
+  .encabezado-contenido {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .encabezado-nav {
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .encabezado-nav a {
+    font-size: 14px;
+  }
+}
+
+
+/* Catálogo de productos AhorraTech */
+.catalogo {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 28px;
+}
+
+.catalogo > h1 {
+  margin: 0 0 12px;
+  color: var(--azul);
+  font-size: clamp(30px, 4vw, 44px);
+}
+
+.catalogo > p {
+  margin-bottom: 36px;
+  color: #526a78;
+  font-size: 17px;
+}
+
+/* Distribución de las tarjetas */
+.lista-productos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Tarjeta individual */
+.tarjeta-producto {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 28px;
+  background: var(--blanco);
+  border: 1px solid #dce7ed;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(16, 42, 67, 0.06);
+}
+
+.tarjeta-categoria {
+  align-self: flex-start;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #e5f7f4;
+  color: #087f76;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.tarjeta-producto h2 {
+  margin: 0;
+  color: var(--azul);
+  font-size: 21px;
+  line-height: 1.35;
+}
+
+.tarjeta-precio {
+  margin: 0;
+  color: var(--azul);
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.tarjeta-ahorro {
+  margin: auto 0 0;
+  padding-top: 16px;
+  border-top: 1px solid #e5edf2;
+  color: #087f76;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Catálogo adaptable */
+@media (max-width: 900px) {
+  .lista-productos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .catalogo {
+    padding: 36px 16px;
+  }
+
+  .lista-productos {
+    grid-template-columns: 1fr;
+  }
+
+  .tarjeta-producto {
+    padding: 22px;
+  }
+}
+
+
+/* Filtros del catálogo */
+.filtros {
+  margin: 30px 0;
+}
+
+.filtros-titulo {
+  margin: 0 0 14px;
+  color: var(--azul);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.filtros-opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filtro-boton {
+  padding: 11px 19px;
+  border: 1px solid #d5e3e9;
+  border-radius: 30px;
+  background: var(--blanco);
+  color: var(--azul);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filtro-boton:hover {
+  border-color: var(--turquesa);
+  color: #087f76;
+  transform: translateY(-2px);
+}
+
+.filtro-boton.activo {
+  background: var(--azul);
+  border-color: var(--azul);
+  color: var(--blanco);
+}
+
+.filtro-boton:focus-visible {
+  outline: 3px solid var(--turquesa);
+  outline-offset: 3px;
+}
+
+/* Efecto sutil en las tarjetas */
+.tarjeta-producto {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta-producto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(16, 42, 67, 0.12);
+}
+
+
+/* Botones para añadir productos */
+.boton-agregar {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px 16px;
+  border: none;
+  border-radius: 10px;
+  background: var(--azul);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.boton-agregar:hover {
+  background: #17647a;
+  transform: translateY(-2px);
+}
+
+/* Zona de compra */
+.zona-carrito {
+  max-width: 700px;
+  margin: 48px 0;
+  padding: 30px;
+  background: white;
+  border: 1px solid #dce7ed;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(16, 42, 67, 0.06);
+}
+
+.zona-carrito label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--azul);
+  font-weight: 700;
+}
+
+.zona-carrito input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #cbdce5;
+  border-radius: 9px;
+  font: inherit;
+}
+
+.zona-carrito input:focus {
+  outline: 2px solid var(--turquesa);
+  outline-offset: 2px;
+}
+
+/* Carrito de compras */
+.carrito h2 {
+  margin: 26px 0 20px;
+  color: var(--azul);
+}
+
+.carrito-lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carrito-lista li {
+  padding: 18px 0;
+  border-bottom: 1px solid #e5edf2;
+}
+
+.carrito-lista li p {
+  margin: 8px 0;
+  color: #526a78;
+}
+
+.carrito-controles {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carrito-controles button {
+  min-width: 35px;
+  padding: 8px 12px;
+  border: 1px solid #d5e3e9;
+  border-radius: 8px;
+  background: #f3f8fa;
+  color: var(--azul);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.carrito-controles button:hover {
+  background: #e5f7f4;
+}
+
+.carrito-controles button:last-child {
+  margin-left: 8px;
+  color: #a52a35;
+}
+
+.carrito-total {
+  margin: 24px 0;
+  color: var(--azul);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.boton-confirmar {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #087f76;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.boton-confirmar:hover {
+  background: #06675f;
+}
+
+.boton-confirmar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.carrito [role="status"] {
+  margin-top: 18px;
+  font-weight: 600;
+  color: #087f76;
+}
+
+@media (max-width: 600px) {
+  .zona-carrito {
+    padding: 20px;
+  }
+
+  .carrito-controles {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* Administración AhorraTech */
+.administracion {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 55px 28px 80px;
+}
+
+.administracion > h1 {
+  margin-bottom: 12px;
+  color: var(--azul);
+  font-size: clamp(30px, 4vw, 42px);
+}
+
+.administracion > p {
+  margin-bottom: 30px;
+  color: #526a78;
+}
+
+/* Formulario de productos */
+.admin-formulario,
+.admin-productos {
+  margin-bottom: 30px;
+  padding: 30px;
+  background: white;
+  border: 1px solid #dce7ed;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(16, 42, 67, 0.06);
+}
+
+.admin-formulario h2,
+.admin-productos h2 {
+  margin: 0 0 24px;
+  color: var(--azul);
+  font-size: 23px;
+}
+
+.admin-formulario form {
+  display: grid;
+  grid-template-columns: minmax(170px, 240px) minmax(0, 1fr);
+  gap: 14px 20px;
+  align-items: center;
+}
+
+.admin-formulario label {
+  color: var(--azul);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.admin-formulario input,
+.admin-formulario select {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #cbdce5;
+  border-radius: 9px;
+  background: white;
+  color: var(--azul);
+  font: inherit;
+}
+
+.admin-formulario input:focus,
+.admin-formulario select:focus {
+  outline: 2px solid var(--turquesa);
+  outline-offset: 2px;
+}
+
+.admin-formulario button {
+  grid-column: 2;
+  justify-self: start;
+  padding: 13px 28px;
+  border: none;
+  border-radius: 10px;
+  background: var(--azul);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-formulario button:hover {
+  background: #17647a;
+}
+
+.admin-formulario button:disabled,
+.admin-tabla button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Mensajes de confirmación */
+.administracion > [role="status"] {
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: #e5f7f4;
+  color: #087f76;
+  font-weight: 700;
+}
+
+.administracion > [role="alert"] {
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: #fff0f0;
+  color: #a52a35;
+  font-weight: 700;
+}
+
+/* Tabla de productos */
+.admin-tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-tabla th {
+  padding: 15px;
+  background: var(--azul);
+  color: white;
+  font-size: 14px;
+}
+
+.admin-tabla td {
+  padding: 15px;
+  border-bottom: 1px solid #e5edf2;
+  color: var(--azul);
+  font-size: 14px;
+}
+
+.admin-tabla tbody tr:hover {
+  background: #f3f8fa;
+}
+
+.admin-tabla td button {
+  padding: 9px 14px;
+  border: 1px solid #f0cbd0;
+  border-radius: 8px;
+  background: #fff3f3;
+  color: #a52a35;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-tabla td button:hover {
+  background: #ffe5e8;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 600px) {
+  .administracion {
+    padding: 35px 16px;
+  }
+
+  .admin-formulario,
+  .admin-productos {
+    padding: 20px;
+  }
+
+  .admin-formulario form {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .admin-formulario input,
+  .admin-formulario select {
+    margin-bottom: 8px;
+  }
+
+  .admin-formulario button {
+    grid-column: 1;
+    width: 100%;
+  }
+}
